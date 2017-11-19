@@ -295,13 +295,13 @@ class LazyInitStepContext(StepContext):
 
     @property
     def allure(self):
-        l = self.allure_helper.get_listener()
+        listener = self.allure_helper.get_listener()
 
         # if listener has `stack` we are inside a test
         # record steps only when that
         # FIXME: this breaks encapsulation a lot
-        if hasattr(l, 'stack'):
-            return l
+        if hasattr(listener, 'stack'):
+            return listener
 
 
 class AllureHelper(object):
